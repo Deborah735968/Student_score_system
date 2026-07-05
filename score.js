@@ -1,7 +1,7 @@
 let studentForm = document.querySelector('#studentScore');
 
 
-studentScore.addEventListener('submit', function(event){
+studentForm.addEventListener('submit', function(event){
     event.preventDefault();
 
 
@@ -24,11 +24,11 @@ studentScore.addEventListener('submit', function(event){
         message.innerHTML = "Please enter your matric number."; 
         return;
     }
-     else if (!isNaN(matric)){
-            message.innerHTML = "Only input a number"
+    //  else if (isNaN(matric)){
+    //         message.innerHTML = "Only input a number"
      
-         return; 
-         }  
+    //      return; 
+    //      }  
 
     if (course === ""){
         message.innerHTML = "Please enter your course code.";  
@@ -39,7 +39,8 @@ studentScore.addEventListener('submit', function(event){
         message.innerHTML = "Please enter a valid score"; 
         return;
     }
-    else if (isNaN(score)){
+    score = Number (score)
+    if (isNaN(score)){
             message.innerHTML = "Only input a Number"  
          return;  
         }
