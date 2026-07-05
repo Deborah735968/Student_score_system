@@ -1,6 +1,6 @@
 let studentForm = document.querySelector('#studentScore');
-let message = document.getElementById ('message');
-let result = document.getElementById ('result');
+
+
 studentScore.addEventListener('submit', function(event){
     event.preventDefault();
 
@@ -13,6 +13,8 @@ studentScore.addEventListener('submit', function(event){
     document.getElementById("course").value.trim();
     let score = 
     document.getElementById("score").value;
+
+    let message = document.getElementById ('message');
     if (name === ""){
          message.innerHTML = "Please enter your name.";
          return;    
@@ -20,8 +22,13 @@ studentScore.addEventListener('submit', function(event){
 
     if (matric === ""){
         message.innerHTML = "Please enter your matric number."; 
-         return;   
+        return;
     }
+     else if (!isNaN(matric)){
+            message.innerHTML = "Only input a number"
+     
+         return; 
+         }  
 
     if (course === ""){
         message.innerHTML = "Please enter your course code.";  
@@ -29,9 +36,13 @@ studentScore.addEventListener('submit', function(event){
     }
 
     if (score === ""){
-        message.innerHTML = "Please enter a valid score";   
-         return;  
+        message.innerHTML = "Please enter a valid score"; 
+        return;
     }
+    else if (isNaN(score)){
+            message.innerHTML = "Only input a Number"  
+         return;  
+        }
 
     score = Number (score);
     if (score < 0 || score > 100 ) {
@@ -54,6 +65,9 @@ studentScore.addEventListener('submit', function(event){
     } else {
         grade = "F"
     }
+
+
+    let result = document.getElementById ('result');
 
   result.innerHTML = `
    <h2>Student Result</h2>
